@@ -181,10 +181,11 @@ correta, de acordo com os dados inseridos no objeto.
 pessoa.apresentacao = function() {
     const prefixo = pessoa.sexo === "F" ? "a " : "o ";
     const idadeAnos = pessoa.idade > 1 ? " anos, " : "ano, ";
+    const mtsCaminhados = pessoa.caminhouQuantosMetros > 1 ? " metros" : "metro";
     return `Olá, eu sou ${prefixo} ${pessoa.nome} ${pessoa.sobrenome}, tenho ${pessoa.idade} ${idadeAnos}, ${pessoa.altura}, meu peso é ${pessoa.peso} e, só hoje, eu já caminhei  ${pessoa.caminhouQuantosMetros} metros!`;
     };
     
 
 // Agora, apresente-se ;)
-pessoa.apresentacao()  // Olá, eu sou a  Andrieli Javorski, tenho 28  anos, , 1.63, meu peso é 54 e, só hoje, eu já caminhei 10 metros!
+pessoa.apresentacao()  // Olá, eu sou a  Andrieli Javorski, tenho 28  anos, , 1.63, meu peso é 54 e, só hoje, eu já caminhei 10 ${mtsCaminhados}!
 ```
