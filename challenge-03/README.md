@@ -32,7 +32,7 @@ Adicione um método ao objeto `pessoa` chamado `fazerAniversario`. O método dev
 alterar o valor da propriedade `idade` dessa pessoa, somando `1` a cada vez que
 for chamado.
 */
-pessoa.fazerAniversario = () => {
+pessoa.fazerAniversario = function() {
   pessoa.idade++
 };
 
@@ -46,7 +46,7 @@ valor dessa propriedade a quantidade passada por parâmetro;
 - Ele deverá modificar o valor da propriedade `andando` para o valor
 booleano que representa "verdadeiro";
 */
-pessoa.andar = (mtsCaminhados) => {
+pessoa.andar = function(mtsCaminhados) {
   pessoa.caminhouQuantosMetros += mtsCaminhados
   pessoa.andando = true
 };
@@ -55,7 +55,7 @@ pessoa.andar = (mtsCaminhados) => {
 Adicione um método ao objeto `pessoa` chamado `parar`, que irá modificar o valor
 da propriedade `andando` para o valor booleano que representa "falso".
 */
-pessoa.parar = () => {
+pessoa.parar = function() {
   pessoa.andando = false
 };
 
@@ -63,7 +63,7 @@ pessoa.parar = () => {
 Crie um método chamado `nomeCompleto`, que retorne a frase:
 - "Olá! Meu nome é [NOME] [SOBRENOME]!"
 */
-pessoa.nomeCompleto = () => {
+pessoa.nomeCompleto = function() {
   return "Olá! Meu nome é " + pessoa.nome + " " + pessoa.sobrenome + "!"
 };
 
@@ -71,7 +71,7 @@ pessoa.nomeCompleto = () => {
 Crie um método chamado `mostrarIdade`, que retorne a frase:
 - "Olá, eu tenho [IDADE] anos!"
 */
-pessoa.mostrarIdade = () => {
+pessoa.mostrarIdade = function() {
   return "Olá, eu tenho " + pessoa.idade + " anos!"
 };
 
@@ -79,7 +79,7 @@ pessoa.mostrarIdade = () => {
 Crie um método chamado `mostrarPeso`, que retorne a frase:
 - "Eu peso [PESO]Kg."
 */
-pessoa.mostrarPeso = () => {
+pessoa.mostrarPeso = function() {
   return "Eu peso " + pessoa.peso + "Kg."
 };
 
@@ -87,7 +87,7 @@ pessoa.mostrarPeso = () => {
 Crie um método chamado `mostrarAltura` que retorne a frase:
 - "Minha altura é [ALTURA]m."
 */
-pessoa.mostrarAltura = () => {
+pessoa.mostrarAltura = function() {
   return "Minha altura é " + pessoa.altura + "m."
 };
 
@@ -178,8 +178,13 @@ deve conter no retorno da frase acima é "metro" no lugar de "metros".
 método), que será concatenada com a frase de retorno, mostrando a resposta
 correta, de acordo com os dados inseridos no objeto.
 */
-?
+pessoa.apresentacao = function() {
+    const prefixo = pessoa.sexo === "F" ? "a " : "o ";
+    const idadeAnos = pessoa.idade > 1 ? " anos, " : "ano, ";
+    return `Olá, eu sou ${prefixo} ${pessoa.nome} ${pessoa.sobrenome}, tenho ${pessoa.idade} ${idadeAnos}, ${pessoa.altura}, meu peso é ${pessoa.peso} e, só hoje, eu já caminhei  ${pessoa.caminhouQuantosMetros} metros!`;
+    };
+    
 
 // Agora, apresente-se ;)
-?
+pessoa.apresentacao()  // Olá, eu sou a  Andrieli Javorski, tenho 28  anos, , 1.63, meu peso é 54 e, só hoje, eu já caminhei 10 metros!
 ```
