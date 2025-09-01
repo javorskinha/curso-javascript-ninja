@@ -67,7 +67,7 @@ carro.modarCor = function(cor) {
 /*
 Crie um método chamado `obterCor`, que retorne a cor do carro.
 */
-carro.obterCor = fucntion() {
+carro.obterCor = function() {
   return carro.cor;
 }
 
@@ -111,11 +111,11 @@ mostrar quantos assentos ainda podem ser ocupados, com a frase:
 citado acima, no lugar de "pessoas".
 */
 carro.adcPessoas = function(pessoas) {
-  carro.quantidadePessoas += pessoas
   if ((carro.quantidadePessoas + pessoas) > 5){
     var assentosLivres = carro.assentos - carro.quantidadePessoas
     return `Só cabem mais ${assentosLivres} pessoas!`
   }
+  carro.quantidadePessoas += pessoas
   return carro.quantidadePessoas === 5 ? "O carro já está lotado!" : `Já temos ${carro.quantidadePessoas} pessoas no carro!`
 }
 
@@ -130,13 +130,13 @@ Qual a cor atual do carro?
 carro.cor  // Preto
 
 // Mude a cor do carro para vermelho.
-carro.modarCor(Vermelho);
+carro.modarCor("Vermelho");
 
 // E agora, qual a cor do carro?
 carro.cor  // Vermelho
 
 // Mude a cor do carro para verde musgo.
-carro.modarCor(Verde Musgo);
+carro.modarCor("Verde Musgo");
 
 // E agora, qual a cor do carro?
 carro.cor  // Verde Musgo
