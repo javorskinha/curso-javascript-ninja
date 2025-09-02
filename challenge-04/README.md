@@ -18,6 +18,7 @@ isTruthy(unefined);
 isTruthy(0);
 isTruthy(-0);
 isTruthy("");
+isTruthy(NaN);
 
 /*
 Invoque a função criada acima passando como parâmetro 10 valores `truthy`.
@@ -111,12 +112,17 @@ mostrar quantos assentos ainda podem ser ocupados, com a frase:
 citado acima, no lugar de "pessoas".
 */
 carro.adcPessoas = function(pessoas) {
+  if (carro.quantidadePessoas === carro.assentos) {
+    return "O carro já está lotado!"
+  }
+
   if ((carro.quantidadePessoas + pessoas) > 5){
     var assentosLivres = carro.assentos - carro.quantidadePessoas
-    return `Só cabem mais ${assentosLivres} pessoas!`
+    var pessoas = assentosLivres === 1 ? "pessoa" : "pessoas"
+    return `Só cabem mais ${assentosLivres} ${pessoas}!`
   }
   carro.quantidadePessoas += pessoas
-  return carro.quantidadePessoas === 5 ? "O carro já está lotado!" : `Já temos ${carro.quantidadePessoas} pessoas no carro!`
+  return `Já temos ${carro.quantidadePessoas} pessoas no carro!`
 }
 
 /*
