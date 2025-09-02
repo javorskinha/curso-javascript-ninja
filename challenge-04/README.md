@@ -112,16 +112,16 @@ mostrar quantos assentos ainda podem ser ocupados, com a frase:
 citado acima, no lugar de "pessoas".
 */
 carro.adcPessoas = function(pessoas) {
-  if (carro.quantidadePessoas === carro.assentos) {
-    return "O carro já está lotado!"
-  }
+  var totalPessoas = carro.quantidadePessoas + pessoas;
+  var assentosLivres = carro.assentos - carro.quantidadePessoas;
+  var pluralOuSingular = assentosLivres === 1 ? "pessoa" : "pessoas";
 
-  if ((carro.quantidadePessoas + pessoas) > 5){
-    var assentosLivres = carro.assentos - carro.quantidadePessoas
-    var pessoas = assentosLivres === 1 ? "pessoa" : "pessoas"
-    return `Só cabem mais ${assentosLivres} ${pessoas}!`
-  }
+  if (carro.quantidadePessoas === carro.assentos) return "O carro já está lotado!"
+
+  if (totalPessoas > 5) return `Só cabem mais ${assentosLivres} ${pluralOuSingular}!`
+
   carro.quantidadePessoas += pessoas
+
   return `Já temos ${carro.quantidadePessoas} pessoas no carro!`
 }
 
@@ -157,7 +157,7 @@ carro.adcPessoas(2)  // Já temos 2 pessoas no carro!
 carro.adcPessoas(4)  // Só cabem mais 3 pessoas!
 
 // Faça o carro encher.
-carro.adcPessoas(3)  // O carro já está lotado!
+carro.adcPessoas(3)  // Já temos 5 pessoas no carro!
 
 // Tire 4 pessoas do carro.
 carro.quantidadePessoas -= 4;
