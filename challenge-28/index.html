@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <main>
+    <h3>Buscar endereço</h3>
+    <form data-js="form-zip-code">
+      <label for="input-cep">CEP</label>
+      <input type="text" name="input-cep" data-js="input-zip-code">
+      <button type="submit">Buscar</button>
+    </form>
+    <div>
+      <h4>Status da requisição:</h4>
+      <p value="Pendente" data-js="input-status"></p>
+    </div>
+    <h3>Resultado:</h3>
+    <div>
+      <div>
+        <label for="input-street">Logradouro</label>
+        <input readonly type="text" name="input-street" data-js="input-street">
+      </div>
+      <div>
+        <label for="input-neighborhood">Bairro</label>
+        <input readonly type="text" name="input-neighborhood" data-js="input-neighborhood">
+      </div>
+      <div>
+        <label for="input-state">Estado</label>
+        <input readonly type="text" name="input-state" data-js="input-state">
+      </div>
+      <div>
+        <label for="input-city">Cidade</label>
+        <input readonly type="text" name="input-city" data-js="input-city">
+      </div>
+      <div>
+        <label for="input-zip-code-response">CEP</label>
+        <input readonly type="text" name="input-zip-code-response" data-js="input-zip-code-response">
+      </div>
+    </div>
+  </main>
+  <script src="challenge-28.js"></script>
+</body>
+</html>
