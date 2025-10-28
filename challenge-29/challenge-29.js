@@ -1,4 +1,4 @@
-(function() {
+(function(DOM, doc) {
   'use strict';
 
   /*
@@ -36,4 +36,82 @@
   que será nomeado de "app".
   */
 
-})();
+  function app() {
+    const $formButtonCadastrar = new DOM('[data-js="button-cadastrar"]');
+    const $name = new DOM('[data-js="name"]').get();
+    const $phone = new DOM('[data-js="phone"]').get();
+    const $tableCarBody = new DOM('[data-js="table-car-body"]').get();
+
+    function ajaxRequest(method, url) {
+      const ajax = new XMLHttpRequest();
+      ajax.open(method, url, true);
+      ajax.send();
+      ajax.addEventListener('readystatechange', () => {
+        if (ajax.readyState === 4) {
+          initCompany(JSON.parse(ajax.responseText));
+        }
+      });
+    }
+
+    function initCompany(company) {
+      $name.textContent = company.name;
+      $phone.textContent = company.phone;
+    }
+
+    function addCar() {
+      let fragment = doc.createDocumentFragment();
+      const data = inputData().map( item => item.get().value)
+      fragment = createTableLine(data);
+      clearForm();
+      return $tableCarBody.appendChild(fragment);
+    }
+
+    function inputData(){
+      const image = new DOM('[data-js="input-image"]');
+      const marcaModelo = new DOM('[data-js="input-marca-modelo"]');
+      const ano = new DOM('[data-js="input-ano"]');
+      const placa = new DOM('[data-js="input-placa"]');
+      const cor = new DOM('[data-js="input-cor"]');
+
+      return [ image, marcaModelo, ano, placa, cor ];
+    }
+
+    function createTableLine(inputData){
+      const tr = doc.createElement('tr');
+      for ( let i = 0; i < inputData.length; i++){
+        const td = doc.createElement('td')
+        if (inputData[i].match(/data:image/)){
+          const image = doc.createElement( 'img' );
+          image.setAttribute( 'src', inputData[i] );
+          td.appendChild(image);
+          tr.appendChild(td);
+          continue;
+        }
+        td.textContent = inputData[i];
+        tr.appendChild(td);
+      }
+      return tr;
+    }
+
+    function clearForm(){
+      inputData().map( item => item.get().value = '');
+    }
+
+    function submitForm() {
+      $formButtonCadastrar.on('click', (event) => {
+        event.preventDefault();
+        addCar();
+      });
+    }
+
+    return {
+      ajaxRequest,
+      initCompany,
+      addCar,
+      submitForm
+    }
+  }
+
+  app().ajaxRequest('GET', './company.json');
+  app().submitForm();
+})(window.DOM, document);
