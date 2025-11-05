@@ -2,7 +2,7 @@
 Crie uma variável qualquer, que receba um array com alguns valores aleatórios
 - ao menos 5 - (fica por sua conta os valores do array).
 */
-var someArray = [1, "eu", 2.3, true, "string"]
+const someArray = [1, "eu", 2.3, true, "string"]
 
 /*
 Crie uma função que receba um array como parâmetro, e retorne esse array.
@@ -29,7 +29,7 @@ function exibition(arr, i) {
 /*
 Declare uma variável que recebe um array com 5 valores, de tipos diferentes.
 */
-var otheVar = [1, true, "text", null, -0]
+const otheVar = [1, true, "text", null, -0]
 
 /*
 Invoque a função criada acima, fazendo-a retornar todos os valores do último
@@ -55,7 +55,7 @@ propriedades:
 os livros.
 */
 function book(bkname) {
-    var obj = {
+    const obj = {
         "branca de neve": {
             quantidadePaginas: 285,
             autor: "disney",
@@ -87,7 +87,7 @@ usando a frase:
 "O livro [NOME_DO_LIVRO] tem [X] páginas!"
 */
 
-var bookName = "branca de neve"
+const bookName = "branca de neve"
 console.log(`O livro ${bookName} tem ${book(bookName).quantidadePaginas} páginas!`)
 
 /*

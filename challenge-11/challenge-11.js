@@ -8,7 +8,7 @@
     'Entrou ao menos uma vez!'
     Qual loop você deve usar para que essa mensagem seja mostrada no console?
     */
-    var once = false;
+    const once = false;
     do {
         console.log('Entrou ao menos uma vez!')
     } while (once);
@@ -18,7 +18,7 @@
     - 'name', 'age', 'weight' e 'birthday'. Preencha com os valores corretos
     para o nome, idade, peso e data de nascimento dessa pessoa.
     */
-    var person = {
+    const person = {
         name: 'Ana',
         age: 24,
         weight: 1.87,
@@ -34,10 +34,10 @@
     Após o loop, mostre a frase:
     'The person has [COUNTER] properties'
     */
-   var counter = 0
+    let counter = 0
     for (prop in person){
         counter++;
-        console.log(`The ${prop} of person in ${person[prop]}`)
+        console.log(`The ${prop} of person is ${person[prop]}`)
     }
     console.log(`The person has ${counter} properties`);
 
@@ -59,7 +59,7 @@
     Mostre no console os números no array.
     */
     console.log( 'De 0 a 10:' );
-    var numbers = []
+    let numbers = []
     for (i = 0; i < 20; i++){
         if (i > 10) break;
         numbers.push(i)

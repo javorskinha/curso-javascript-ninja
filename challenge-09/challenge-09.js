@@ -12,14 +12,15 @@
     */
 
     function myFunction() {
-        var number1 = 10;
-        var number2 = 20;
+        const number1 = 10;
+        const number2 = 20;
 
         console.log( 'Na função `myFunction`, o primeiro número é', number1 );
         console.log( 'Na função `myFunction`, o segundo número é', number2 );
 
         return number1 + number2;
     }
+    myFunction();
 
 
     /*
@@ -27,10 +28,10 @@
     */
 
     function myFunction2() {
-        var number1 = 10;
-        var number2 = 20;
+        const number1 = 10;
+        const number2 = 20;
 
-        var sum = function sum() {
+        const sum = function sum() {
             return number1 + number2;
         };
 
@@ -38,6 +39,7 @@
 
         return sum();
     }
+    myFunction2();
 
 
     /*
@@ -45,10 +47,10 @@
     */
 
     function myFunction3() {
-        var number2 = 50;
-        var number1 = 40;
+        const number2 = 50;
+        const number1 = 40;
 
-        function sum() {
+        const sum = function sum() {
             return number1 + number2;
         };
 
@@ -57,7 +59,7 @@
 
         return sum();
     }
-
+    myFunction3();
 
     /*
     No desafio anterior criamos uma calculadora, usando uma estrutura funcional.
@@ -82,7 +84,7 @@
     Declare uma variável chamada `sum`, e atribua a ela a função `calculator`,
     passando dois números por parâmetro.
     */
-    var sum = calculator(1, 2);
+    const sum = calculator(1, 2);
 
     /*
     Sabemos que `sum` agora tem uma função atribuída a ela, que é o retorno de
@@ -93,7 +95,7 @@
     uma função anônima que irá retornar a soma dos dois números que essa função
     anônima tem como seus argumentos.
     */
-    console.log( 'O resultado da soma é: ' + sum((n1, n2) => { return n1 + n2 }) );
+    console.log( `O resultado da soma é: ${sum((n1, n2) => { return n1 + n2 })}` );
 
 
     /*
@@ -101,10 +103,10 @@
     `division` e `mod`, e atribua à elas `calculator`, passando números
     diferentes para cada chamada.
     */
-    var subtraction = calculator(12, 8);
-    var multiplication = calculator(3, 4);
-    var division = calculator(29, 3);
-    var mod = calculator(145, 57);
+    const subtraction = calculator(12, 8);
+    const multiplication = calculator(3, 4);
+    const division = calculator(29, 3);
+    const mod = calculator(145, 57);
 
     /*
     Mostre as variáveis acima no `console` (uma chamada de console por variável),
@@ -113,11 +115,11 @@
     As suas respostas devem estar abaixo dos `console.log` referentes à cada
     chamada.
     */
-    console.log( 'O resultado da subtração é: ' + subtraction((n1, n2) => { return n1 - n2 }) );
+    console.log( `O resultado da subtração é: ${subtraction((n1, n2) => { return n1 - n2 })}` );
 
-    console.log( 'O resultado da multiplicação é: ' + multiplication((n1, n2) => { return n1 * n2 }) );
+    console.log( `O resultado da multiplicação é: ${multiplication((n1, n2) => { return n1 * n2 })}` );
 
-    console.log( 'O resultado da divisão é: ' + division((n1, n2) => { return n1 / n2 }) );
+    console.log( `O resultado da divisão é: ${division((n1, n2) => { return n1 / n2 })}` );
 
-    console.log( 'O resto da divisão é: ' + mod((n1, n2) => { return n1 % n2 }) );
+    console.log( `O resto da divisão é: ${mod((n1, n2) => { return n1 % n2 })}` );
 })();

@@ -7,18 +7,19 @@ um único parâmetro como argumento. Essa função deve retornar `true` se o
 equivalente booleano para o valor passado no argumento for `true`, ou `false`
 para o contrário.
 */
-var isTruthy = function (param) {
+const isTruthy = function (param) {
   return param? true : false;
 }
 
 // Invoque a função criada acima, passando todos os tipos de valores `falsy`.
 isTruthy(false);
 isTruthy(null);
-isTruthy(unefined);
+isTruthy(undefined);
 isTruthy(0);
 isTruthy(-0);
 isTruthy("");
 isTruthy(NaN);
+isTruthy(0n);
 
 /*
 Invoque a função criada acima passando como parâmetro 10 valores `truthy`.
@@ -46,7 +47,7 @@ seguintes propriedades (os valores devem ser do tipo mostrado abaixo):
 - `assentos` - Number - cinco por padrão
 - `quantidadePessoas` - Number - zero por padrão
 */
-var carro = {
+let carro = {
   marca: "Chevrolet",
   modelo: "Cruze",
   placa: "apx-1231",
@@ -62,28 +63,28 @@ Crie um método chamado `mudarCor` que mude a cor do carro conforme a cor
 passado por parâmetro.
 */
 carro.modarCor = function(cor) {
-  carro.cor = cor;
+  this.cor = cor;
 }
 
 /*
 Crie um método chamado `obterCor`, que retorne a cor do carro.
 */
 carro.obterCor = function() {
-  return carro.cor;
+  return this.cor;
 }
 
 /*
 Crie um método chamado `obterModelo` que retorne o modelo do carro.
 */
 carro.obterModelo = function() {
-  return carro.modelo;
+  return this.modelo;
 }
 
 /*
 Crie um método chamado `obterMarca` que retorne a marca do carro.
 */
 carro.obterMarca = function() {
-  return carro.marca;
+  return this.marca;
 }
 
 /*
@@ -92,7 +93,7 @@ Crie um método chamado `obterMarcaModelo`, que retorne:
 Para retornar os valores de marca e modelo, utilize os métodos criados.
 */
 carro.obterMarcaModelo = function() {
-  return `Esse carro é um ${carro.obterMarca()} ${carro.obterModelo()}`
+  return `Esse carro é um ${this.obterMarca()} ${this.obterModelo()}`
 }
 
 /*
@@ -112,17 +113,17 @@ mostrar quantos assentos ainda podem ser ocupados, com a frase:
 citado acima, no lugar de "pessoas".
 */
 carro.adcPessoas = function(pessoas) {
-  var totalPessoas = carro.quantidadePessoas + pessoas;
-  var assentosLivres = carro.assentos - carro.quantidadePessoas;
-  var pluralOuSingular = assentosLivres === 1 ? "pessoa" : "pessoas";
+  const totalPessoas = this.quantidadePessoas + pessoas;
+  const assentosLivres = this.assentos - this.quantidadePessoas;
+  const pluralOuSingular = assentosLivres === 1 ? "pessoa" : "pessoas";
 
-  if (carro.quantidadePessoas === carro.assentos) return "O carro já está lotado!"
+  if (this.quantidadePessoas === this.assentos) return "O carro já está lotado!"
 
   if (totalPessoas > 5) return `Só cabem mais ${assentosLivres} ${pluralOuSingular}!`
 
-  carro.quantidadePessoas += pessoas
+  this.quantidadePessoas += pessoas
 
-  return `Já temos ${carro.quantidadePessoas} pessoas no carro!`
+  return `Já temos ${this.quantidadePessoas} pessoas no carro!`
 }
 
 /*

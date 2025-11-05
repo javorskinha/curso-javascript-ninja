@@ -11,7 +11,7 @@
     Mostre esse array no console.
     */
     console.log( 'Number Objects Array:' );
-    var numberObjects = [];
+    let numberObjects = [];
     for (i = 1; i <= 10; i++){
         numberObjects.push( { number: i } )
     }
@@ -22,7 +22,7 @@
     números do array criado acima. Mostre esse novo array no console.
     */
     console.log( '\nJust Numbers:' );
-    var justNumbers = numberObjects.map((item) => {
+    const justNumbers = numberObjects.map((item) => {
         return item.number;
     })
     console.log(justNumbers);
@@ -33,7 +33,7 @@
     no console.
     */
     console.log( '\nJust module of division by 2 or 3:' );
-    var justMod2Or3 = justNumbers.filter((number)=>{
+    const justMod2Or3 = justNumbers.filter((number)=>{
         return number % 2 === 0 || number % 3 === 0
     });
     console.log(justMod2Or3);
@@ -47,7 +47,7 @@
     Mostre o resultado no console.
     */
     console.log( '\nOperation:' );
-    var operation = justMod2Or3.reduce((acumulado, valor) => {
+    const operation = justMod2Or3.reduce((acumulado, valor) => {
         return (acumulado + 1) * valor
     }, 0);
     console.log(operation);
@@ -58,7 +58,7 @@
     console.
     */
     console.log( '\nOperation 2:' );
-    var operation2 = justMod2Or3.reduceRight((acumulado, valor) => {
+    const operation2 = justMod2Or3.reduceRight((acumulado, valor) => {
         return (acumulado + 1) * valor
     }, 0);
     console.log(operation2);
@@ -72,8 +72,8 @@
     falada, como se você estivesse falando em código xD
     */
     console.log( '\nSeu nome na língua do "P":' );
-    var name = [ 'An', 'dri', 'e', 'li' ];
-    var nomeNoP = name.reduce((acumulado, valor) => {
+    const name = [ 'An', 'dri', 'e', 'li' ];
+    const nomeNoP = name.reduce((acumulado, valor) => {
         return acumulado + 'P' + valor;
     }, '');
     console.log(nomeNoP);
@@ -83,7 +83,7 @@
     e atribuirá o seu nome invertido (usando o array criado acima).
     */
     console.log( '\nInversed Name:' );
-    var inversedName = name.reduceRight((acumulado, valor) => {
+    const inversedName = name.reduceRight((acumulado, valor) => {
         return acumulado + valor;
     });
     console.log(inversedName )
@@ -104,7 +104,7 @@
     o que acontece ;)
     */
     console.log( '\nExiste um { number: 2 } em numberObjects?' );
-    var hasIndex = numberObjects.indexOf({ number: 2 })
+    let hasIndex = numberObjects.indexOf({ number: 2 })
     console.log(hasIndex ? 'Existe um objeto { number: 2 } em numberObjects!' : 'Não existe um objeto { number: 2 } em numberObjects :(')
 
     /*
@@ -112,7 +112,7 @@
     será que obtemos um resultado diferente? Faça a busca a partir do índice 2.
     */
     console.log( '\nE buscando a partir do último índice, o { number: 2 } existe?' );
-    var hasIndex = numberObjects.lastIndexOf({ number: 2 }, 2)
+    hasIndex = numberObjects.lastIndexOf({ number: 2 }, 2)
     console.log(hasIndex ? 'Existe um objeto { number: 2 } em numberObjects!' : 'Não existe um objeto { number: 2 } em numberObjects :(')
 
     /*
@@ -120,7 +120,7 @@
     formato de String.
     */
     console.log( '\njustMod2Or3 é um array? Se for, a representação dele em String é:' );
-    var isArray = Array.isArray(justMod2Or3);
+    const isArray = Array.isArray(justMod2Or3);
     console.log( isArray ? justMod2Or3.toString() : '');
 
 })();

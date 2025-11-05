@@ -22,21 +22,23 @@
     adicionados à idade original (age). Esse método deverá retornar o objeto
     que será instanciado.
   */
-  function Person (name, lastName, age){
-    this.name = name,
-    this.lastName = lastName,
-    this.age = age, 
-    this.getFullName = function getFullName(){
+  class Person {
+    constructor(name, lastName, age){
+      this.name = name;
+      this.lastName = lastName;
+      this.age = age;
+    }
+    getFullName(){
       return `${this.name} ${this.lastName}`;
-    },
-    this.getAge = function getAge(){
+    }
+    getAge(){
       return this.age;
-    },
-    this.addAge = function addAge(){
+    }
+    addAge(){
       arguments[0] + this.age;
       return this;
     }
-  }
+  } // durante a revisao decidi usar a notação de classe ao invés de function constructor
 
   /*
   Crie 3 novos objetos usando o construtor acima. Os objetos serão novas
@@ -45,9 +47,9 @@
   Mostre as 3 novas pessoas criadas no console (Um console.log por pessoa).
   */
   console.log( 'Novas pessoas criadas à partir de Person:' );
-  var pessoa1 = new Person('Ana', 'Staine', 24);
-  var pessoa2 = new Person('Isabelly', 'Pereira', 25);
-  var pessoa3 = new Person('Maria', 'Thimoteo', 23);
+  const pessoa1 = new Person('Ana', 'Staine', 24);
+  const pessoa2 = new Person('Isabelly', 'Pereira', 25);
+  const pessoa3 = new Person('Maria', 'Thimoteo', 23);
   console.log(pessoa1);
   console.log(pessoa2);
   console.log(pessoa3);

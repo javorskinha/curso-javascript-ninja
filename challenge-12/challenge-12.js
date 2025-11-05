@@ -11,7 +11,7 @@
     Preencha cada propriedade com os seus dados pessoais, respeitando o tipo
     de valor para cada propriedade.
     */
-    var person  = {
+    const person  = {
         name: 'Andrieli',
         lastname: 'Javorski',
         age: 25
@@ -27,7 +27,7 @@
     /*
     Crie um array vazio chamado `books`.
     */
-    var books = [];
+    const books = [];
 
     /*
     Adicione nesse array 3 objetos, que serão 3 livros. Cada livro deve ter a
@@ -91,7 +91,7 @@
     Crie um array chamado `myName`. Cada item desse array deve ser uma letra do
     seu nome. Adicione seu nome completo no array.
     */
-    var myName = ['A', 'n', 'd', 'r', 'i', 'e', 'l', 'i']
+    const myName = ['A', 'n', 'd', 'r', 'i', 'e', 'l', 'i']
     console.log( '\nMeu nome é:' );
 
     /*

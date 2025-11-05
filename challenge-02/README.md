@@ -9,13 +9,13 @@ function soma(val1, val2) {
 };
 
 // Declare uma variável que receba a invocação da função criada acima, passando dois números quaisquer por argumento, e somando `5` ao resultado retornado da função.
-var total = soma(3, 7) + 5;
+const total = soma(3, 7) + 5;
 
 // Qual o valor atualizado dessa variável?
 15
 
 // Declare uma nova variável, sem valor.
-var semValor;
+let semValor;
 
 /*
 Crie uma função que adicione um valor à variável criada acima, e retorne a string:
@@ -24,7 +24,7 @@ Onde VALOR é o novo valor da variável.
 */
 function adicionaValor() {
   semValor = 12;
-  return 'O valor da variável agora é' + semValor;
+  return 'O valor da variável agora é ' + semValor;
 };
 
 // Invoque a função criada acima.
@@ -69,20 +69,24 @@ Crie uma função com as seguintes características:
 6. E ainda, se nenhuma das condições acima forem atendidas, retorne `null`.
 */
 function retornaValor(val1, val2, val3) {
-  if (!val1, !val2, !val3){
+  if (!val1 && !val2 && !val3){
     return false;
-  } else if (val1 && !val2 && !val3) {
+  } 
+  if (val1 && !val2 && !val3) {
     return val1;
-  } else if (val1 && val2 && !val3) {
+  } 
+  if (val1 && val2 && !val3) {
     return val1 + val2;
-  } else if (val1 && val2 && val3) {
+  }  
+  if (val1 && val2 && val3) {
     return (val1 + val2) / val3;
-  } else { return null; }
+  } 
+  return null;
 };
 
 // Invoque a função acima utilizando todas as possibilidades (com nenhum argumento, com um, com dois e com três.) Coloque um comentário de linha ao lado da função com o resultado de cada invocação.
 retornaValor();  // false
-retornValor(2);  // 2
+retornaValor(2);  // 2
 retornaValor(2, 3);  // 5
 retornaValor(8, 7, 3);  //5
 ```

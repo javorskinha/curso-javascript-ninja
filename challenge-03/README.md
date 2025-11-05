@@ -2,7 +2,7 @@
 
 ```js
 // Declarar uma variável qualquer, que receba um objeto vazio.
-var qualquer = {};
+const qualquer = {};
 
 /*
 Declarar uma variável `pessoa`, que receba suas informações pessoais.
@@ -16,7 +16,7 @@ As propriedades e tipos de valores para cada propriedade desse objeto devem ser:
 - `andando` - Boolean - recebe "falso" por padrão
 - `caminhouQuantosMetros` - Number - recebe "zero" por padrão
 */
-var pessoa = {
+let pessoa = {
   nome: "Andrieli",
   sobrenome: "Javorski",
   sexo: "F",
@@ -33,7 +33,7 @@ alterar o valor da propriedade `idade` dessa pessoa, somando `1` a cada vez que
 for chamado.
 */
 pessoa.fazerAniversario = function() {
-  pessoa.idade++
+  this.idade++
 };
 
 /*
@@ -47,7 +47,7 @@ valor dessa propriedade a quantidade passada por parâmetro;
 booleano que representa "verdadeiro";
 */
 pessoa.andar = function(mtsCaminhados) {
-  pessoa.caminhouQuantosMetros += mtsCaminhados
+  pessoa.caminhouQuantosMetros += parseInt(mtsCaminhados)
   pessoa.andando = true
 };
 
@@ -64,7 +64,7 @@ Crie um método chamado `nomeCompleto`, que retorne a frase:
 - "Olá! Meu nome é [NOME] [SOBRENOME]!"
 */
 pessoa.nomeCompleto = function() {
-  return "Olá! Meu nome é " + pessoa.nome + " " + pessoa.sobrenome + "!"
+  return `Olá! Meu nome é ${this.nome} ${this.sobrenome}!`
 };
 
 /*
@@ -72,7 +72,7 @@ Crie um método chamado `mostrarIdade`, que retorne a frase:
 - "Olá, eu tenho [IDADE] anos!"
 */
 pessoa.mostrarIdade = function() {
-  return "Olá, eu tenho " + pessoa.idade + " anos!"
+  return `Olá, eu tenho ${this.idade} anos!`
 };
 
 /*
@@ -80,7 +80,7 @@ Crie um método chamado `mostrarPeso`, que retorne a frase:
 - "Eu peso [PESO]Kg."
 */
 pessoa.mostrarPeso = function() {
-  return "Eu peso " + pessoa.peso + "Kg."
+  return `Eu peso ${this.peso} Kg.`
 };
 
 /*
@@ -88,7 +88,7 @@ Crie um método chamado `mostrarAltura` que retorne a frase:
 - "Minha altura é [ALTURA]m."
 */
 pessoa.mostrarAltura = function() {
-  return "Minha altura é " + pessoa.altura + "m."
+  return `Minha altura é ${this.altura} m.`
 };
 
 /*
@@ -179,13 +179,13 @@ método), que será concatenada com a frase de retorno, mostrando a resposta
 correta, de acordo com os dados inseridos no objeto.
 */
 pessoa.apresentacao = function() {
-    const prefixo = pessoa.sexo === "F" ? "a " : "o ";
-    const idadeAnos = pessoa.idade > 1 ? " anos, " : "ano, ";
-    const mtsCaminhados = pessoa.caminhouQuantosMetros > 1 ? " metros" : "metro";
-    return `Olá, eu sou ${prefixo} ${pessoa.nome} ${pessoa.sobrenome}, tenho ${pessoa.idade} ${idadeAnos}, ${pessoa.altura}, meu peso é ${pessoa.peso} e, só hoje, eu já caminhei  ${pessoa.caminhouQuantosMetros} metros!`;
-    };
+  const prefixo = this.sexo === "F" ? "a " : "o ";
+  const idadeAnos = this.idade > 1 ? " anos, " : "ano, ";
+  const mtsCaminhados = this.caminhouQuantosMetros > 1 ? " metros" : "metro";
+  return `Olá, eu sou ${prefixo} ${this.nome} ${this.sobrenome}, tenho ${this.idade} ${idadeAnos}, ${this.altura}, meu peso é ${this.peso} e, só hoje, eu já caminhei  ${this.caminhouQuantosMetros} ${mtsCaminhados}!`;
+};
     
 
 // Agora, apresente-se ;)
-pessoa.apresentacao()  // Olá, eu sou a  Andrieli Javorski, tenho 28  anos, , 1.63, meu peso é 54 e, só hoje, eu já caminhei 10 ${mtsCaminhados}!
+pessoa.apresentacao()  // Olá, eu sou a  Andrieli Javorski, tenho 28  anos, , 1.63, meu peso é 54 e, só hoje, eu já caminhei 10 metros!
 ```

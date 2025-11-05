@@ -10,10 +10,10 @@
     das variáveis. Analise o que está sendo impresso no console para saber como
     resolver o problema corretamente.
     */
-    var five = Number('5');
+    const five = Number('5');
     console.log( five + ' é número?', typeof five === 'number' );
 
-    var concat = String(10) + String(10);
+    const concat = String(10) + String(10);
     console.log( '"' + concat + '" é uma string? E é igual a "1010"?', typeof concat === 'string' );
 
     /*
@@ -25,7 +25,7 @@
     função receberá dois parâmetros e retornará a operação referente à sua
     propriedade, usando os valores passados por parâmetro.
     */
-    var operation = {
+    const operation = {
         '+': function(n1, n2){
             return n1 + n2;
         },
@@ -103,9 +103,9 @@
     - Declare 3 variáveis: "number1" e "number2", iniciando com valor zero, e
     "operationSignal", sem valor por enquanto.
     */
-    var number1 = 0;
-    var number2 = 0;
-    var operationSignal = null;
+    let number1 = 0;
+    let number2 = 0;
+    let operationSignal = null;
 
     /*
     PASSO 2:
@@ -114,7 +114,7 @@
     parâmetro a variável que recebeu o sinal da operação.
     */
     operationSignal = '+';
-    var sum = calculator(operationSignal);
+    const sum = calculator(operationSignal);
 
     /*
     PASSO 3:
@@ -133,7 +133,7 @@
         number2 = 7;
         console.log(showOperationMessage(operationSignal, number1, number2), sum(number1, number2))
     } else {
-        showErrorMessage(operationSignal)
+        console.log(showErrorMessage(operationSignal))
     }
 
     /*
@@ -142,47 +142,47 @@
     "multiplication", "division" e "mod".
     */
     operationSignal = '-';
-    var subtraction = calculator(operationSignal);
+    const subtraction = calculator(operationSignal);
 
     if (subtraction !== false) {
         number1 = 12;
         number2 = 7;
         console.log(showOperationMessage(operationSignal, number1, number2), subtraction(number1, number2))
     } else {
-        showErrorMessage(operationSignal)
+        console.log(showErrorMessage(operationSignal))
     }
 
     operationSignal = '/';
-    var division = calculator(operationSignal);
+    const division = calculator(operationSignal);
 
     if (division !== false) {
         number1 = 12;
         number2 = 7;
         console.log(showOperationMessage(operationSignal, number1, number2), division(number1, number2))
     } else {
-        showErrorMessage(operationSignal)
+        console.log(showErrorMessage(operationSignal))
     }
 
     operationSignal = '*';
-    var multiplication = calculator(operationSignal);
+    const multiplication = calculator(operationSignal);
 
     if (multiplication !== false) {
         number1 = 12;
         number2 = 7;
         console.log(showOperationMessage(operationSignal, number1, number2), multiplication(number1, number2))
     } else {
-        showErrorMessage(operationSignal)
+        console.log(showErrorMessage(operationSignal))
     }
 
     operationSignal = '%';
-    var mod = calculator(operationSignal);
+    const mod = calculator(operationSignal);
 
     if (mod !== false) {
         number1 = 12;
         number2 = 7;
         console.log(showOperationMessage(operationSignal, number1, number2), mod(number1, number2))
     } else {
-        showErrorMessage(operationSignal)
+        console.log(showErrorMessage(operationSignal))  
     }
 
     /*
@@ -190,13 +190,13 @@
     a mensagem de erro será mostrada no console.
     */
     operationSignal = '=';
-    var mod = calculator(operationSignal);
+    const op = calculator(operationSignal);
 
-    if (mod !== false) {
+    if (op !== false) {
         number1 = 12;
         number2 = 7;
         console.log(showOperationMessage(operationSignal, number1, number2), mod(number1, number2))
     } else {
-        showErrorMessage(operationSignal)
+        console.log(showErrorMessage(operationSignal));
     }
 })();
